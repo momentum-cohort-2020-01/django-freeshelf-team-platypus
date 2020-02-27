@@ -1,6 +1,19 @@
-{% for book in books %}
-    {{ book.title }}
-    {{ book.author }}
-    {{ book.description }}
-    {{ book.url }}
-{% endfor %}
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <dl>
+
+        {% for book in books %}
+
+        <dt>{{book.title}}</dt>
+        <dt>{{book.author}}</dt>
+        <dd>{{book.description}}</dd>
+        <dd>{{book.url}}</dd>
+        
+        {% endfor %}
+    </dl>
+        
+{% endblock content %}
+
+
