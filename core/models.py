@@ -9,6 +9,7 @@ class Book(models.Model):
     author = models.CharField(max_length=100, help_text='Author of the book')
     description = models.TextField(help_text='Description of the book')
     url = models.URLField(max_length=256)
+    created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.title} by {self.author}"
