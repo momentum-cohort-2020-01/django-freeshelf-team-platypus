@@ -1,11 +1,9 @@
 from django.shortcuts import render
 
-import csv
+from .models import Book
 
 
 def book_list(request):
-    with open('sample_books.csv', 'r') as f:
-        book_reader = csv.DictReader(f)
-        books = [book for book in book_reader]
+    books = Book.objects.all()
     context = {'books': books}
     return render(request, 'core/book_list.html', context=context)
