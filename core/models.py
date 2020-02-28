@@ -20,7 +20,7 @@ class Book(models.Model):
     url = models.URLField(max_length=256)
     categrory = models.ManyToManyField(
         Category, related_name='category', help_text="Choose a programming language this book covers")
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
