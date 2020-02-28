@@ -22,6 +22,5 @@ class Book(models.Model):
         Category, related_name='category', help_text="Choose a programming language this book covers")
     created_at = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
         return f"{self.title} by {self.author}"
