@@ -10,8 +10,13 @@
         <dt>{{book.author}}</dt>
         <dd>{{book.description}}</dd>
         <dd class='created-date'>Book added: {{book.created_at}}</dd>
-        <!-- <dd><a href='{{book.url}}'>Link</a></dd> -->
+        <ul class='categories'>
+            {% for cat in book.category.all %}
+            <li>{{ cat.name }}</li>
+            {% endfor %}
+        </ul>
         
+
         {% endfor %}
     </dl>
         
