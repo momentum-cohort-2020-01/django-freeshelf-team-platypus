@@ -6,10 +6,10 @@
 
         {% for book in books %}
 
-        <dt>{{book.title}}</dt>
+        <dt><a href='{{book.url}}'>{{book.title}}</a></dt>
         <dt>{{book.author}}</dt>
         <dd>{{book.description}}</dd>
-        <dd>{{book.url}}</dd>
+        <!-- <dd><a href='{{book.url}}'>Link</a></dd> -->
         
         {% endfor %}
     </dl>
