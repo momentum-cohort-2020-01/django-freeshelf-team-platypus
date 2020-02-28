@@ -20,6 +20,8 @@ class Book(models.Model):
     url = models.URLField(max_length=256)
     categrory = models.ManyToManyField(
         Category, related_name='category', help_text="Choose a programming language this book covers")
+    created_at = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         return f"{self.title} by {self.author}"
