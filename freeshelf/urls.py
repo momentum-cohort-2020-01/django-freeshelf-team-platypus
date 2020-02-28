@@ -22,5 +22,5 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.book_list, name='book_list'),
-    path('category/<str:cat>', views.cat_list, name='cat_list'),
+    path('category/<slug:slug>', views.cat_list, name='cat_list'),
 ]
