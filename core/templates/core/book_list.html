@@ -12,7 +12,7 @@
         <dd class='created-date'>Book added: {{book.created_at}}</dd>
         <ul class='categories'>
             {% for cat in book.category.all %}
-            <li>{{ cat.name }}</li>
+            <li class='language-category'>{{ cat.name }}</li>
             {% endfor %}
         </ul>
         
