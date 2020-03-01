@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <a href="{% url 'book_suggestion'}">Suggest a book</a>
     <dl>
         {% for book in books %}
         <dt><a href='{{book.url}}'>{{book.title}}</a></dt>
