@@ -2,6 +2,19 @@
 
 {% block content %}
 
+<div class='book-list'>
+
+    <div class="dropdown">
+        <button type="button" class="dropdown-trigger">Sort by</button>
+        <div class="dropdown-menu">
+            <a href="{{request.path}}/sort/created_at">Date Added</a>
+            <a href="{{request.path}}/sort/created_at_reverse">Date Added reverse</a>
+            <a href="{{request.path}}/sort/title">Title</a>
+            <a href="{{request.path}}/sort/author">Author</a>
+        </div>
+    </div>
+    {{request.path}}
+
     <dl>
         {% for book in books %}
         <dt><a href='{{book.url}}'>{{book.title}}</a></dt>
