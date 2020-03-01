@@ -3,22 +3,24 @@
 {% block content %}
 
     <dl>
-
         {% for book in books %}
         <dt><a href='{{book.url}}'>{{book.title}}</a></dt>
         <dt>{{book.author}}</dt>
         <dd>{{book.description}}</dd>
-        <dd class='created-date'>Book added: {{book.created_at}}</dd>
         <ul class='categories'>
-            {% for cat in book.category.all %}
-            <li class='language-category'>{{ cat.name }}</li>
-            {% endfor %}
+            {% if book.category %}
+                {% for cat in book.category.all %}
+                <li class='language-category'>
+                    <a href="{% url 'cat_list' cat.slug %}">{{ cat.name }}</a>
+                </li>
+                {% endfor %}
+            {% endif %}
         </ul>
-        
+        <dd class='created-date'>Book added: {{book.created_at}}</dd>
 
         {% endfor %}
     </dl>
-        
+
 {% endblock content %}
 
 
