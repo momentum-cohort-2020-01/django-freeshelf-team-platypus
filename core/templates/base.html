@@ -12,9 +12,10 @@
     <title>Programming Biblio</title>
 </head>
 <body>
-    <h1 class='header'><a href="{% url 'book_list' %}">FREESHELF</a></h1>
+    <h1 class='header'>
+        <a href="{% url 'book_list' %}">FREESHELF</a>
+    </h1>
     <div class='book-list'>
-        <!-- Pull down menu -->
     {% block content %} {% endblock content %}
 
     </div>
