@@ -6,7 +6,7 @@
 
     <div class="suggestion-box">
         <div class="dropdown">
-            <button type="button" class="dropdown-trigger">Sort by</button>
+            <button type="button" class="dropdown-trigger">Sort by:</button>
             <div class="dropdown-menu">
                 <a href="{{request.path}}?sort=date">Date Added (oldest first)</a>
                 <a href="{{request.path}}?sort=date-reverse">Date Added reverse</a>
@@ -14,7 +14,15 @@
                 <a href="{{request.path}}?sort=author">Author</a>
             </div>
         </div>
-        <span class="suggestion">Click on a language tag to view all books about that language.</span>
+
+        <div class="dropdown">
+            <button type="button" class="dropdown-trigger">Programming Language:</button>
+            <div class="dropdown-menu">
+                {% for cat in categories %}
+                <a href="{% url 'cat_list' cat.slug %}">{{cat.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
     <dl>
