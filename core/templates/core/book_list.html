@@ -1,29 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'book_suggestion' %}">Suggest a book</a>
+
 
 <div class='book-list'>
 
     <div class="suggestion-box">
-        <div class="dropdown">
-            <button type="button" class="dropdown-trigger">Sort by:</button>
-            <div class="dropdown-menu">
-                <a href="{{request.path}}?sort=date">Date Added (oldest first)</a>
-                <a href="{{request.path}}?sort=date-reverse">Date Added reverse</a>
-                <a href="{{request.path}}?sort=title">Title</a>
-                <a href="{{request.path}}?sort=author">Author</a>
+        <div class='drop-down-container'>
+            <div class="dropdown">
+                <button type="button" class="dropdown-trigger">Sort by:</button>
+                <div class="dropdown-menu">
+                    <a href="{{request.path}}?sort=date">Date Added (oldest first)</a>
+                    <a href="{{request.path}}?sort=date-reverse">Date Added reverse</a>
+                    <a href="{{request.path}}?sort=title">Title</a>
+                    <a href="{{request.path}}?sort=author">Author</a>
+                </div>
             </div>
-        </div>
 
-        <div class="dropdown">
-            <button type="button" class="dropdown-trigger">Programming Language:</button>
-            <div class="dropdown-menu">
-                {% for cat in categories %}
-                <a href="{% url 'cat_list' cat.slug %}">{{cat.name}}</a>
-                {% endfor %}
+
+            <div class="dropdown">
+                <button type="button" class="dropdown-trigger">Programming Language:</button>
+                <div class="dropdown-menu">
+                    {% for cat in categories %}
+                    <a href="{% url 'cat_list' cat.slug %}">{{cat.name}}</a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
+        <a class='suggest-button' href="{% url 'book_suggestion' %}">Suggest a book</a>
     </div>
 
     <dl>
