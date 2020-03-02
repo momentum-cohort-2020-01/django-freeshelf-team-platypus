@@ -26,21 +26,31 @@ body {
 .header a {
   color: white;
 }
+
 .suggestion-box {
   display: flex;
-  flex-flow: row wrap;
+  justify-content: space-between;
   align-items: center;
-  justify-content: left;
+}
+.suggest-button {
+  color: whitesmoke;
+  background-color:rgb(17, 103, 122);
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 25px;
+  white-space: nowrap;
+  height: max-content;
+}
+.suggest-button:hover {
+  color: white;
+  background-color: rgb(22, 136, 161);
+  text-decoration: none;
 }
 
-.suggestion {
-  font-size: 1.1rem;
-  background-color: rgb(156, 213, 226);
-  padding: 5px 8px;
-  margin-left: 1rem;
-  border-radius: 13px;
-  white-space: nowrap;
+.suggestion-box a {
+  color: whitesmoke;
 }
+
 
 .book-list {
   padding: .5rem 1rem ;
@@ -69,7 +79,7 @@ body {
   font-weight: 500;
   background-color: rgb(17, 103, 122);
   padding: 5px 8px;
-  margin-left: 1rem;
+  margin-right: 1rem;
   border-radius: 13px;
   white-space: nowrap;
 }
@@ -77,4 +87,5 @@ body {
 .language-category a:hover {
   color: white;
   background-color: rgb(22, 136, 161);
+  text-decoration: none;
 }
