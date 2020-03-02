@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import SuggestionForm
+from .forms import SuggestionBook, SuggestionCategory
 from django.http import HttpResponse
 from .models import Book, Category
 
@@ -26,14 +26,15 @@ def cat_list(request, cat):
 @login_required
 def book_suggestion(request):
     if request.method == "POST":
-        form = SuggestionForm(request.POST)
+        form = SuggestionBook(request.POST)
         if form.is_valid():
             book = form.save(commit=False)
             book.save()
-            return redirect('book_list')
     else:
-        form = SuggestionForm()
+        form = SuggestionBook()
     return render(request, 'core/book_suggestion.html', {'form': form})
+
+
 
 def sort_by(queryset, option):
     options = {'date': 'created_at',
