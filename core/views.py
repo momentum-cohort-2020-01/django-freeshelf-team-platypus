@@ -34,13 +34,12 @@ def book_suggestion(request):
         form = SuggestionBook()
     return render(request, 'core/book_suggestion.html', {'form': form})
 
-def log_in(request):
-    return render(request, 'core/log_in.html')
-
-
 def sort_by(queryset, option):
     options = {'date': 'created_at',
                'date-reverse': '-created_at',
                'author': 'author',
                'title': 'title'}
     return queryset.order_by(options[option])
+
+def log_in(request):
+    return render(request, 'core/log_in.html')
