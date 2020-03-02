@@ -28,8 +28,9 @@ def book_suggestion(request):
     if request.method == "POST":
         form = SuggestionBook(request.POST)
         if form.is_valid():
-            book = form.save(commit=False)
-            book.save()
+            book = form.save()
+            # book.save()
+        return redirect('book_list')
     else:
         form = SuggestionBook()
     return render(request, 'core/book_suggestion.html', {'form': form})
