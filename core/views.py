@@ -23,7 +23,7 @@ def cat_list(request, cat):
     context = {'books': books, 'request': request}
     return render(request, 'core/book_list.html', context=context)
 
-@login_required
+@login_required(login_url='/login/')
 def book_suggestion(request):
     if request.method == "POST":
         form = SuggestionBook(request.POST)
@@ -34,6 +34,8 @@ def book_suggestion(request):
         form = SuggestionBook()
     return render(request, 'core/book_suggestion.html', {'form': form})
 
+def log_in(request):
+    return render(request, 'core/log_in.html')
 
 
 def sort_by(queryset, option):
