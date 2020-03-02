@@ -3,18 +3,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block meta %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
     <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.css">
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.js"></script>
+    {% block title %}
     <title>Programming Biblio</title>
+    {% endblock %}
 </head>
 <body>
-    <h1 class='header'>
-        <a href="{% url 'book_list' %}">FREESHELF</a>
-    </h1>
+    <header class='header'>
+        <h1>
+            <a href="{% url 'book_list' %}">FREESHELF</a>
+        </h1>
+        <div class='login-links'>
+            <a class='login' href="/accounts/login">Login</a>
+            |
+            <a class='register' href="/accounts/register">Register</a>
+        </div>  
+
+    </header>
+
     <div class='book-list'>
     {% block content %} {% endblock content %}
 
