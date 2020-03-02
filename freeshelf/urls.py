@@ -26,4 +26,6 @@ urlpatterns = [
     path('suggestion/', views.book_suggestion, name='book_suggestion'),
     # path('login/', views.log_in, name='log_in'  ),
     path('accounts/', include('registration.backends.default.urls')),
+    path('suggestions/', views.suggestion_list, name='suggestion_list'),
+
 ]
