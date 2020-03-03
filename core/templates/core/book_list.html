@@ -19,7 +19,7 @@
 
 
             <div class="dropdown">
-                <button type="button" class="dropdown-trigger">Programming Language:</button>
+                <button type="button" class="dropdown-trigger">Language:</button>
                 <div class="dropdown-menu">
                     {% for cat in categories %}
                     <a href="{% url 'cat_list' cat.slug %}">{{cat.name}}</a>
@@ -30,23 +30,26 @@
         <a class='suggest-button' href="{% url 'book_suggestion' %}">Suggest a book</a>
     </div>
 
-    <dl>
+    <div class='book-container'>
         {% for book in books %}
-        <dt><a href='{{book.url}}'>{{book.title}}</a></dt>
-        <dt>{{book.author}}</dt>
-        <dd>{{book.description}}</dd>
-        <ul class='categories'>
-            {% if book.category %}
-            {% for cat in book.category.all %}
-            <li class='language-category'>
-                <a href="{% url 'cat_list' cat.slug %}">{{ cat.name }}</a>
-            </li>
-            {% endfor %}
-            {% endif %}
-        </ul>
-        <dd class='created-date'>Book added: {{book.created_at}}</dd>
+        <div class='book-box'>
+            <dt><a class='book-title' href='{{book.url}}'>{{book.title}}</a></dt>
+            <dt>{{book.author}}</dt>
+            <dd>{{book.description}}</dd>
+            <ul class='categories'>
+                {% if book.category %}
+                {% for cat in book.category.all %}
+                <li class='language-category'>
+                    <a href="{% url 'cat_list' cat.slug %}">{{ cat.name }}</a>
+                </li>
+            
+                {% endfor %}
+                {% endif %}
+            </ul>
+            <dd class='created-date'>Book added: {{book.created_at}}</dd>
+        </div>
 
         {% endfor %}
-    </dl>
+    </div>
 
     {% endblock content %}

@@ -11,13 +11,14 @@
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
     {% block title %}
-    <title>Programming Biblio</title>
+    <title>Freeshelf</title>
     {% endblock title %}
 </head>
 <body>
     <header class='header'>
-        <h1>
+        <h1 class='site-title'>
             <a href="{% url 'book_list' %}">FREESHELF</a>
         </h1>
         <div class='login-links'>
