@@ -27,5 +27,7 @@ urlpatterns = [
     # path('login/', views.log_in, name='log_in'  ),
     path('accounts/', include('registration.backends.default.urls')),
     path('suggestions/', views.suggestion_list, name='suggestion_list'),
+    path('favorite/<int:pk>', views.favorite, name='favorite'),
+    path('favorites/', views.favorite_list, name='favorite_list'),
 
 ]
