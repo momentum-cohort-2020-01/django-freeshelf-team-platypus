@@ -9,6 +9,8 @@
     {% endblock meta%}
     <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.css">
     <link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+    <script src="{% static 'main.js' %}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
@@ -23,6 +25,8 @@
         </h1>
         <div class='login-links'>
             {% if user.is_authenticated %}
+                <a href="/favorites">Favorites</a>
+                |
                 <a class='logout' href="/accounts/logout">Logout</a>
             {% else %}
                 <a class='login' href="/accounts/login">Login</a>
