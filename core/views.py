@@ -10,8 +10,12 @@ def book_list(request):
     sort_option = request.GET.get('sort', 'date')
     books = Book.objects.filter(approved=True)
     books = sort_by(books, sort_option)
-    user = User.objects.get(username=request.user.username)
-    context = {'favorites': get_user_fave_pks(user), 'books': books, 'request': request,
+    if request.user.is_authenticated:
+        user = User.objects.get(username=request.user.username)
+        context = {'favorites': get_user_fave_pks(user), 'books': books, 'request': request,
+               'categories': Category.objects.all()}
+    else:
+        context = {'books': books, 'request': request,
                'categories': Category.objects.all()}
     return render(request, 'core/book_list.html', context=context)
 
@@ -21,8 +25,12 @@ def cat_list(request, cat):
     category = Category.objects.get(slug=cat)
     books = Book.objects.filter(category=category, approved=True)
     books = sort_by(books, sort_option)
-    user = User.objects.get(username=request.user.username)
-    context = {'favorites': get_user_fave_pks(user), 'books': books, 'request': request,
+    if request.user.is_authenticated:
+        user = User.objects.get(username=request.user.username)
+        context = {'favorites': get_user_fave_pks(user), 'books': books, 'request': request,
+               'categories': Category.objects.all()}
+    else:
+        context = {'books': books, 'request': request,
                'categories': Category.objects.all()}
     return render(request, 'core/book_list.html', context=context)
 
